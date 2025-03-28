@@ -1,193 +1,162 @@
-// $(function () {
-//   var nightsky = ["#280F36", "#632B6C", "#BE6590", "#FFC1A0", "#FE9C7F"];
+// Blinking Effect
+function blink() {
+  document.querySelectorAll(".eye").forEach((eye) => {
+    eye.style.animation = "blink 0.3s";
+    setTimeout(() => (eye.style.animation = ""), 300);
+  });
+}
+setInterval(blink, 3000);
 
-//   var star0 =
-//     "<div class='star star-0' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+// Eye Movement
+document.addEventListener("mousemove", (event) => {
+  const face = document.querySelector(".face");
+  if (!face) return;
 
-//   var star1 =
-//     "<div class='star star-1 blink' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+  const eyes = document.querySelectorAll(".eye");
+  const faceRect = face.getBoundingClientRect();
+  const faceCenterX = faceRect.left + faceRect.width / 2;
+  const faceCenterY = faceRect.top + faceRect.height / 2;
+  const distance = Math.hypot(
+    event.clientX - faceCenterX,
+    event.clientY - faceCenterY
+  );
 
-//   var star2 =
-//     "<div class='star star-2 blink' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+  eyes.forEach((eye) => {
+    let eyeRect = eye.getBoundingClientRect();
+    let angle = Math.atan2(
+      event.clientY - eyeRect.top,
+      event.clientX - eyeRect.left
+    );
 
-//   var star3 =
-//     "<div class='star star-3' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+    eye.style.transform =
+      distance < 300
+        ? `translate(${Math.cos(angle) * 10}px, ${Math.sin(angle) * 10}px)`
+        : "translate(0, 0)";
+  });
+});
 
-//   var star4 =
-//     "<div class='star star-4 blink' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+// Function to Generate Random Data
+function getRandomData(size, max) {
+  return Array.from({ length: size }, () => Math.floor(Math.random() * max));
+}
 
-//   var star5 =
-//     "<div class='star star-5' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;background-color:{{color}}'></div>";
+// Labels for the charts
+const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
 
-//   var star1pt =
-//     "<div class='star star-1 blink' style='top:{{top}}%;left:{{left}}%;animation-duration:{{duration}}s;background-color:{{color}};box-shadow:0px 0px 6px 1px {{shadow}}'></div>";
+// Function to Create Charts
+function createChart(
+  ctx,
+  type,
+  dataSize,
+  maxValue,
+  colors = [],
+  removeGrid = false
+) {
+  return new Chart(ctx, {
+    type,
+    data: {
+      labels: labels.slice(0, dataSize), // Show labels
+      datasets: [
+        {
+          data: getRandomData(dataSize, maxValue),
+          backgroundColor: colors.length ? colors : "#5d62fb",
+          borderColor:
+            type === "line" || type === "radar"
+              ? "rgb(93, 98, 251)"
+              : undefined,
+          fill: type === "line" ? false : undefined,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false, // Hide legend
+        },
+        tooltip: {
+          enabled: true, // Show tooltip on hover
+        },
+      },
+      scales: removeGrid
+        ? {} // No grid for radar chart
+        : {
+            x: {
+              display: true, // Show X-axis
+              grid: { display: true }, // Show X grid lines
+            },
+            y: {
+              display: true, // Show Y-axis
+              grid: { display: true }, // Show Y grid lines
+            },
+          },
+    },
+  });
+}
 
-//   var star2pt =
-//     "<div class='star star-2' style='top:{{top}}%;left:{{left}}%;animation-duration:{{duration}}s;background-color:{{color}};box-shadow:0px 0px 10px 1px {{shadow}};opacity:0.7'></div>";
+// Initialize Charts
+const barChart = createChart(
+  document.getElementById("barChart"),
+  "bar",
+  7,
+  100
+);
+const lineChart = createChart(
+  document.getElementById("lineChart"),
+  "line",
+  7,
+  200
+);
+const pieChart = createChart(
+  document.getElementById("pieChart"),
+  "pie",
+  5,
+  100,
+  ["#5d62fb", "#484cc4", "#353891", "#22245d", "#585ef5"]
+);
+const radarChart = createChart(
+  document.getElementById("radarChart"),
+  "radar",
+  7,
+  100,
+  ["rgba(0, 255, 0, 0.2)"],
+  true
+); // No grid for radar
 
-//   var blur =
-//     "<div class='blur' style='top:{{top}}%;left:{{left}}%;background-color:{{color}}'></div>";
+// Update Charts
+function updateCharts() {
+  [barChart, lineChart, pieChart, radarChart].forEach((chart, index) => {
+    chart.data.datasets[0].data = getRandomData(
+      chart.data.datasets[0].data.length,
+      index === 1 ? 200 : 100
+    );
+    chart.update();
+  });
+}
 
-//   for (i = 0; i < 500; i++) {
-//     $(".stars").append(
-//       star1
-//         .replace("{{top}}", getRandomInt(0, 40))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(2, 5))
-//     );
+setInterval(updateCharts, 3000);
 
-//     $(".stars").append(
-//       star2
-//         .replace("{{top}}", getRandomInt(20, 70))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(4, 8))
-//     );
-//   }
+// star
+const numStars = 100; // Number of stars
+const galaxy = document.querySelector(".galaxy");
 
-//   for (i = 0; i < 150; i++) {
-//     $(".stars").append(
-//       star0
-//         .replace("{{top}}", getRandomInt(0, 50))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(1, 2.5))
-//     );
+for (let i = 0; i < numStars; i++) {
+  let star = document.createElement("div");
+  star.classList.add("star");
 
-//     $(".stars").append(
-//       star1
-//         .replace("{{top}}", getRandomInt(0, 50))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(2.5, 4))
-//     );
+  // Random positions inside the circular container
+  let angle = Math.random() * 2 * Math.PI;
+  let radius = Math.random() * 250; // Half of the galaxy size (300px / 2)
 
-//     $(".stars").append(
-//       star2
-//         .replace("{{top}}", getRandomInt(0, 50))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(4, 5))
-//     );
-//   }
+  let x = 250 + radius * Math.cos(angle);
+  let y = 250 + radius * Math.sin(angle);
 
-//   for (i = 0; i < 100; i++) {
-//     $(".stars").append(
-//       star0
-//         .replace("{{top}}", getRandomInt(40, 75))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(1, 3))
-//     );
+  let duration = Math.random() * 3 + 2; // Random twinkle speed between 2-5 seconds
 
-//     $(".stars").append(
-//       star1
-//         .replace("{{top}}", getRandomInt(40, 75))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(2, 4))
-//     );
-//   }
+  star.style.left = `${x}px`;
+  star.style.top = `${y}px`;
+  star.style.animationDuration = `${duration}s`;
 
-//   for (i = 0; i < 250; i++) {
-//     $(".stars").append(
-//       star0
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(1, 2))
-//     );
-
-//     $(".stars").append(
-//       star1
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(2, 5))
-//     );
-
-//     $(".stars").append(
-//       star2
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(1, 4))
-//     );
-
-//     $(".stars").append(
-//       star4
-//         .replace("{{top}}", getRandomInt(0, 70))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(5, 7))
-//     );
-//   }
-
-//   for (i = 0; i < 150; i++) {
-//     $(".stars").append(
-//       star4
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(5, 7))
-//     );
-
-//     $(".stars-cross").append(
-//       blur
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace(
-//           "{{color}}",
-//           nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
-//         )
-//     );
-
-//     $(".stars-cross").append(
-//       star1pt
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(6, 12))
-//         .replace(
-//           "{{color}}",
-//           nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
-//         )
-//         .replace(
-//           "{{shadow}}",
-//           nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
-//         )
-//     );
-//   }
-
-//   for (i = 0; i < 50; i++) {
-//     if (i % 2 == 0) {
-//       $(".stars").append(
-//         star5
-//           .replace("{{top}}", getRandomInt(0, 50))
-//           .replace("{{left}}", getRandomInt(0, 100))
-//           .replace("{{duration}}", getRandomInt(5, 7))
-//           .replace(
-//             "{{color}}",
-//             nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
-//           )
-//       );
-//     }
-
-//     $(".stars-cross-aux").append(
-//       blur
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace(
-//           "{{color}}",
-//           nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
-//         )
-//     );
-
-//     $(".stars-cross-aux").append(
-//       star2pt
-//         .replace("{{top}}", getRandomInt(0, 100))
-//         .replace("{{left}}", getRandomInt(0, 100))
-//         .replace("{{duration}}", getRandomInt(4, 10))
-//         .replace(
-//           "{{color}}",
-//           nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
-//         )
-//         .replace(
-//           "{{shadow}}",
-//           nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
-//         )
-//     );
-//   }
-// });
-
-// function getRandomInt(min, max) {
-//   return Math.random() * (max - min) + min;
-// }
+  galaxy.appendChild(star);
+}
