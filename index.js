@@ -1,3 +1,11 @@
+document.addEventListener("keydown", function (event) {
+  if (
+    event.ctrlKey &&
+    (event.key === "=" || event.key === "-" || event.key === "0")
+  ) {
+    event.preventDefault();
+  }
+});
 // Run the script after the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   // Blinking Effect
@@ -202,4 +210,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   videos.forEach((video) => videoObserver.observe(video));
 });
-

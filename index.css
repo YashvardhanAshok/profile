@@ -35,6 +35,8 @@ body {
   background-color: var(--root_sky);
 }
 
+
+
 /* page_cun */
 .page_cun {
   position: relative;
@@ -254,7 +256,7 @@ body {
 
   position: absolute;
   bottom: 0;
-  right : 0px;
+  right: 0px;
 
   /* border-top-left-radius: 30px; */
   background-color: var(--smoky_black);
@@ -582,25 +584,23 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
 }
 
-.d_boxs_class{
+.d_boxs_class {
   position: relative;
   width: 100%;
   height: 400px;
 }
 
-.d_box1{
+.d_box1 {
   position: absolute;
   bottom: 0;
   width: 600px;
   height: 300px;
   background-color: var(--smoky_purpal);
   border-top-right-radius: 20px;
-
 }
-.d_box2{
+.d_box2 {
   position: absolute;
   bottom: 250px;
   left: -20px;
@@ -610,7 +610,7 @@ body {
   background-color: var(--smoky_black);
 }
 
-.d_box3{
+.d_box3 {
   position: absolute;
   bottom: 0;
   left: 300px;
@@ -619,10 +619,9 @@ body {
   background-color: var(--smoky_black);
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-
 }
 
-.d_box4{
+.d_box4 {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -630,9 +629,8 @@ body {
   height: 300px;
   background-color: var(--smoky_purpal);
   border-top-right-radius: 20px;
-
 }
-.d_box5{
+.d_box5 {
   position: absolute;
   bottom: 250px;
   right: -20px;
@@ -642,7 +640,7 @@ body {
   background-color: var(--smoky_black);
 }
 
-.d_box6{
+.d_box6 {
   position: absolute;
   bottom: 0;
   right: 300px;
@@ -651,7 +649,6 @@ body {
   background-color: var(--smoky_black);
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-
 }
 
 /* box3 */ /* box3 */ /* box3 */ /* box3 */ /* box3 */ /* box3 */ /* box3 */ /* box3 */ /* box3 */
@@ -908,11 +905,7 @@ body {
   width: 100%;
   font-size: 18px;
   line-height: 1;
-  
 }
-
-
-
 
 .c1_element_image.ATF {
   background-color: rgb(55, 11, 7);
