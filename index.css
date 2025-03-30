@@ -35,8 +35,6 @@ body {
   background-color: var(--root_sky);
 }
 
-
-
 /* page_cun */
 .page_cun {
   position: relative;
@@ -886,6 +884,7 @@ body {
   justify-content: center;
   justify-self: center;
   align-items: center;
+  transition: 0.2s ease-in-out;
 }
 
 .c1_element_image .text {
@@ -905,6 +904,11 @@ body {
   width: 100%;
   font-size: 18px;
   line-height: 1;
+}
+
+.c1_element_image:hover {
+  transform: scale(1.02) translatey(-12px);
+  box-shadow: rgba(0, 0, 0, 0.447) 10px 10px 10px ;
 }
 
 .c1_element_image.ATF {
