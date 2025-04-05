@@ -198,6 +198,30 @@ body {
   overflow: hidden;
 }
 
+.decoration_boxs_class .text {
+  position: absolute;
+  bottom: 200px;
+  font-weight: bolder;
+  left: 75px;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.445);
+  animation: fade 1.5s infinite;
+  font-family: "Pixelify Sans", serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    color: rgba(255, 255, 255, 0.445);
+  }
+  50% {
+    color: white;
+  }
+}
+
 .decoration_boxs.white {
   width: 430px;
   height: 200px;
@@ -1060,14 +1084,7 @@ a {
   text-align: right;
 }
 
-.scroll_up_bu {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
 
-  background-color: rgba(0, 0, 0, 0.243);
-}
 
 .end_line_div {
   position: relative;
@@ -1334,4 +1351,60 @@ a {
   width: 100px;
   height: 100px;
   z-index: 0;
+}
+.scroll_up_flex a{
+  width: 0px;
+}
+.scroll_up_flex{
+  margin-right: 35px;
+}
+
+div.scroll_up_bu {
+	width: 2vmin;
+	height: 2vmin;
+  margin-top: -5px;
+	box-sizing: border-box;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: rotate(-45deg);
+	
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+		border-width: .8vmin .8vmin 0 0;
+		border-style: solid;
+		border-color: #fafafa;
+		transition: .2s ease;
+		display: block;
+		transform-origin: 100% 0;
+	}
+
+	
+	&:after {
+		content: '';
+		float: left;
+		position: relative;
+		top: -100%;
+		width: 100%;
+		height: 100%;
+		border-width: 0 .8vmin 0 0;
+		border-style: solid;
+		border-color: #fafafa;
+		transform-origin: 100% 0;
+		transition:.2s ease;
+	}
+	
+	&:hover::after {
+		transform: rotate(45deg);
+		border-color: orange;
+		height: 120%;
+	}
+	&:hover::before {
+		border-color: orange;
+		transform: scale(.8);
+		
+	}
+	
 }
