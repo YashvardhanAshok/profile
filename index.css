@@ -804,6 +804,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   padding-bottom: 20px;
+  padding-bottom: 400px;
 
   background-color: var(--smoky_white);
 }
@@ -909,7 +910,7 @@ body {
 
 .c1_element_image:hover {
   transform: scale(1.02) translatey(-12px);
-  box-shadow: rgba(0, 0, 0, 0.447) 10px 10px 10px ;
+  box-shadow: rgba(0, 0, 0, 0.447) 10px 10px 10px;
 }
 
 .c1_element_image.ATF {
@@ -982,55 +983,9 @@ body {
 .end {
   position: relative;
   width: 100vw;
-  min-height: 70vh;
-  padding-bottom: 20px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  height: 300px;
 
   background-color: var(--smoky_black);
-}
-
-.end_top {
-  position: relative;
-  width: 95%;
-  padding-top: 40px;
-  margin: auto;
-  display: flex;
-  align-items: top;
-  justify-content: space-between;
-  color: var(--smoky_white);
-}
-
-.end_name {
-  /* font-family: "Pixelify Sans", serif; */
-  font-style: normal;
-  font-optical-sizing: auto;
-  font-weight: bolder;
-  font-size: 25px;
-  padding: 5px0;
-}
-
-.Get_In_Touch {
-  font-weight: bold;
-  font-size: 22px;
-  text-align: center;
-  border: 2px solid var(--smoky_white);
-  padding: 5px 30px;
-}
-
-.meadia a {
-  color: white;
-  text-align: right;
-  width: 100%;
-}
-
-.meadia {
-  margin-top: 5px;
-  padding-right: 10px;
-  font-size: 18px;
-  color: white;
-  text-align: right;
-  border-right: white 2px solid;
 }
 
 a {
@@ -1056,25 +1011,22 @@ a {
 
   display: flex;
   justify-content: space-between;
+  align-self: bottom;
 
   color: var(--smoky_white);
 }
 
 .hello_world {
+  font-size: 22px;
   font-optical-sizing: auto;
   font-weight: bolder;
-
-  line-height: 0.8;
-  font-size: 122px;
-  max-width: 30%;
-
-  font-family: "Pixelify Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  display: flex;
+  align-items: flex-end; /* Align children vertically at the bottom */
+  justify-content: bottom; /* Optional: center text horizontally */
 }
 
 .hello_world b {
-  font-size: 152px;
+  padding-right: 5px;
 }
 
 .dot_in_hello {
@@ -1124,4 +1076,262 @@ a {
   height: 5px;
 
   background-color: var(--smoky_white);
+}
+
+/* new */
+.end {
+  height: 380px;
+}
+
+.end_top {
+  position: absolute;
+  width: 400px;
+  border-top-right-radius: 30px;
+  padding: 15px 53px;
+  top: -208px;
+  background-color: var(--smoky_black);
+  color: var(--smoky_white);
+}
+
+.end_top::after {
+  content: "";
+  width: 100px;
+  height: 120px;
+  background-color: var(--smoky_black);
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
+
+.end_name {
+  /* font-family: "Pixelify Sans", serif; */
+  width: 100px;
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.contact_us_cun {
+  width: 95%;
+  margin: auto;
+  position: relative;
+  gap: 25px;
+  display: flex;
+  align-items: bottom;
+  justify-content: space-between;
+}
+
+.us_left {
+  margin-top: -105px;
+  border-radius: 30px;
+  border: solid 3px var(--smoky_black);
+  padding: 20px;
+  background-color: var(--smoky_white);
+  color: var(--smoky_black);
+  width: 90%;
+}
+
+.us_left h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.us_left p {
+  padding: 0;
+  margin: 0;
+  max-width: 800px;
+}
+
+.us_right {
+  margin-top: -105px;
+  background-color: var(--smoky_white);
+  border: solid 3px var(--smoky_black);
+  border-radius: 30px;
+}
+
+.us_left h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.us_right a .contact_box_hub {
+  display: flex;
+  font-size: 20px;
+  width: 220px;
+  margin: 12px;
+  border-radius: 20px;
+  position: relative;
+  background-color: var(--smoky_black);
+  border: solid 3px var(--smoky_black);
+  transition: 0.1s ease-in-out;
+  color: var(--smoky_white);
+
+  overflow: hidden;
+}
+
+.us_right a .contact_box_hub:hover .contact_box {
+  transform: translateY(-114%);
+}
+
+.contact_box {
+  transition: 0.1s ease-in-out;
+  font-weight: bolder;
+  display: flex;
+  font-size: 20px;
+  width: 220px;
+  padding: 12px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.contact_box::after {
+  background-color: var(--smoky_white);
+  color: var(--smoky_black);
+  padding: 15px;
+  width: 100%;
+  position: absolute;
+  left: -3.8px;
+  top: 0;
+  text-align: left;
+  transform: translateY(100%);
+}
+
+.contact_box.phone::after {
+  content: attr(data-label);
+}
+.contact_box.linkedin::after {
+  content: "LINKEDIN";
+}
+.contact_box.gmail::after {
+  content: "GMAIL";
+}
+.contact_box.github::after {
+  content: "GITHUB";
+}
+
+/* decoration_boxs*/
+
+.us_left .decoration_boxs.tower {
+  bottom: -20px;
+  right: 330px;
+  width: 130px;
+  height: 130px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.us_left .decoration_boxs.tower .face {
+  width: 123px;
+  height: 123px;
+}
+
+.us_left .decoration_boxs.tower .face .eye {
+  width: 20px;
+  height: 30px;
+  top: 50px;
+  transition: transform 0.1s;
+  border-radius: 20%;
+}
+.us_left .decoration_boxs.tower .face .eye.left-eye {
+  left: 70px;
+}
+.us_left .decoration_boxs.tower .face .eye.right-eye {
+  right: 70px;
+}
+
+@keyframes blink2 {
+  0%,
+  100% {
+    height: 30px;
+  }
+  50% {
+    height: 00px;
+  }
+}
+
+.end_dec_box {
+  width: 100%;
+  position: absolute;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
+
+.end_dec_box div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  z-index: 1;
+  background-color: var(--smoky_black);
+  border-radius: 100px;
+}
+
+.end_dec_box div:nth-child(1) {
+  top: -160px;
+  left: 450px;
+}
+
+.end_dec_box div:nth-child(2) {
+  top: -240px;
+  left: 630px;
+  width: 120px;
+  height: 120px;
+}
+
+.end_dec_box div:nth-child(3) {
+  top: -150px;
+  left: 850px;
+  width: 100px;
+  height: 100px;
+  z-index: 0;
+}
+
+.end_dec_box div:nth-child(4) {
+  top: -300px;
+  left: 1050px;
+  width: 130px;
+  height: 130px;
+}
+
+.end_dec_box div:nth-child(5) {
+  top: -200px;
+  left: 1300px;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+}
+
+.end_dec_box div:nth-child(6) {
+  top: -300px;
+  left: 1500px;
+  width: 150px;
+  height: 150px;
+  z-index: 0;
+}
+
+.end_dec_box div:nth-child(7) {
+  top: -400px;
+  left: 1650px;
+  width: 50px;
+  height: 50px;
+  z-index: 0;
+}
+.end_dec_box div:nth-child(8) {
+  top: -340px;
+  left: 1710px;
+  width: 80px;
+  height: 80px;
+  z-index: 0;
+}
+
+.end_dec_box div:nth-child(9) {
+  top: -480px;
+  left: 1780px;
+  width: 100px;
+  height: 100px;
+  z-index: 0;
 }

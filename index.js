@@ -14,34 +14,47 @@ document.addEventListener("DOMContentLoaded", () => {
       eye.style.animation = "blink 0.3s";
       setTimeout(() => (eye.style.animation = ""), 300);
     });
+
+    document
+      .querySelectorAll(".us_left .decoration_boxs.tower .face .eye")
+      .forEach((eye) => {
+        eye.style.animation = "blink2 0.3s";
+        setTimeout(() => (eye.style.animation = ""), 300);
+      });
   }
   setInterval(blink, 3000);
 
   // Eye Movement
   document.addEventListener("mousemove", (event) => {
-    const face = document.querySelector(".face");
-    if (!face) return;
+    const face1 = document.querySelector("#face1");
+    const face2 = document.querySelector("#face2");
+    if (!face1 || !face2) return;
 
-    const eyes = document.querySelectorAll(".eye");
-    const faceRect = face.getBoundingClientRect();
-    const faceCenterX = faceRect.left + faceRect.width / 2;
-    const faceCenterY = faceRect.top + faceRect.height / 2;
-    const distance = Math.hypot(
-      event.clientX - faceCenterX,
-      event.clientY - faceCenterY
-    );
-
-    eyes.forEach((eye) => {
-      let eyeRect = eye.getBoundingClientRect();
-      let angle = Math.atan2(
-        event.clientY - eyeRect.top,
-        event.clientX - eyeRect.left
+    // Process each face separately
+    [face1, face2].forEach((face) => {
+      const faceRect = face.getBoundingClientRect();
+      const faceCenterX = faceRect.left + faceRect.width / 2;
+      const faceCenterY = faceRect.top + faceRect.height / 2;
+      const distance = Math.hypot(
+        event.clientX - faceCenterX,
+        event.clientY - faceCenterY
       );
 
-      eye.style.transform =
-        distance < 300
-          ? `translate(${Math.cos(angle) * 10}px, ${Math.sin(angle) * 10}px)`
-          : "translate(0, 0)";
+      // Get eyes inside this face only
+      const eyes = face.querySelectorAll(".eye");
+
+      eyes.forEach((eye) => {
+        const eyeRect = eye.getBoundingClientRect();
+        const angle = Math.atan2(
+          event.clientY - (eyeRect.top + eyeRect.height / 2),
+          event.clientX - (eyeRect.left + eyeRect.width / 2)
+        );
+
+        eye.style.transform =
+          distance < 500
+            ? `translate(${Math.cos(angle) * 10}px, ${Math.sin(angle) * 10}px)`
+            : "translate(0, 0)";
+      });
     });
   });
 
@@ -210,3 +223,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   videos.forEach((video) => videoObserver.observe(video));
 });
+
+// copy
+document
+  .querySelector(".contact_box.phone")
+  .addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent link navigation
+
+    const box = this;
+    const number = box.getAttribute("data-number");
+
+    navigator.clipboard.writeText(number).then(() => {
+      box.setAttribute("data-label", "Copied!");
+
+      setTimeout(() => {
+        box.setAttribute("data-label", number);
+      }, 1500);
+    });
+  });
