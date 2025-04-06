@@ -1,44 +1,80 @@
-<h1>RAILWAY MANAGEMENT SYSTEM</h1>
-<p>
+# Yashvardhan Ashok - Portfolio Website
 
-The Railway Management System, also known as RailX, was developed during my 6th semester in college as part of the Software Project Management (SPM) course. Despite being a mini-project, RailX was equipped with email capabilities, enabling users to receive their tickets via email upon booking. Additionally, it offers both web-based and database-driven functionalities, allowing users to access the system either through a website with a database backend or by utilizing preset configurations that utilize randomization to display train schedules.
+This is a dynamic, interactive personal portfolio website created by **Yashvardhan Ashok**, showcasing his experience, skills, and projects in web development, data analysis, and automation using modern technologies like Python, Ruby on Rails, React, MySQL, and more.
 
-This project is freely available for use under the <b>Non-Publishing Open-Use License (NPOL)</b>
+---
 
+## Live Preview
 
+You can view a hosted version of the project [here](https://yashvardhanashok.github.io/profile/).
 
+---
 
+## About
 
-</p>
-For Live Demo <a href='https://yashvardhanashok.github.io/Railway-Management-System/reservation/reservation.html'>Click Here</a>
+The website highlights:
 
-<h2>HOME</h2>
-It's simple to use. Just select the departure and arrival locations.  
-<p> 
+- A detailed introduction to **Yashvardhan Ashok**
+- Work experience across multiple companies and internships
+- Hands-on experience in Web Development, AI/ML, Automation, and Data Analysis
+- Technologies and tools used in real-world projects
+- Engaging UI with animated elements, scroll indicators, and embedded media
 
-There are moving animation, some element may look out of place.
-<img src="doc/1.png" width="100%">
-<img src="doc/2.png" width="100%">
-<img src="doc/3.png" width="100%">
-</p>
+---
 
-<h2>RESERVATION</h2>
-<img src="doc/full2.png" width="100%">
-<p> 
+## Tech Stack
 
-<h2>PAYMENT</h2>
-<img src="doc/full3.png" width="100%">
-<img src="doc/full3_2.png" width="100%">
-<p> 
+| Category          | Technologies                             |
+| ----------------- | ---------------------------------------- |
+| **Frontend**      | HTML, CSS, JavaScript                    |
+| **Backend**       | PHP, Node.js, React, Ruby on Rails       |
+| **Database**      | MySQL, JSON, MongoDB                     |
+| **Data Tools**    | Pandas, NumPy, Tableau, Power BI         |
+| **AI/ML Tools**   | TensorFlow, PyTorch, Keras, OpenCV       |
+| **Automation**    | Selenium, Raspberry Pi, Microcontrollers |
+| **Visualization** | Matplotlib, Seaborn, Chart.js            |
+| **Tools & Apps**  | Excel, Google Sheets, Jupyter Notebook   |
 
-<h2>EMAIL</h2>
-<img src="doc/4.png" width="100%">
-<p> 
+---
 
+## Work Experience
 
-<h2>LICENSE - NPOL</h2>
+- **Power Grid Corporation of India** – Industrial Training
+- **MyUpchar** – Summer Intern
+- **Navrasa Duende** – Web Intern
+- **Energo Products Limited** – Summer Intern
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use the Software for any purpose, including commercial applications, but the publication of the Software in any form, including but not limited to distribution, public display, or making the source code available online, is strictly prohibited. 
+---
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-<p> 
+## Skills & Highlights
+
+- Created **TOKUMEI**, an internal communication tool.
+- Developed scalable web apps using **React**, **Rails**, and **MySQL**.
+- Built AI/ML models for data-driven solutions using **CNNs**, **RNNs**, and **NLP**.
+- Automated workflows and scraping tools using **Selenium** and **Python**.
+- Designed dynamic dashboards and reports with **Tableau** and **Power BI**.
+
+---
+
+## Multimedia Integration
+
+- Includes embedded `video` sections for various industries like:
+  - Power
+  - Medicine
+  - Film
+  - Production
+
+---
+
+## Experimental Section
+
+A special section named `EXPERIMENTAL` for upcoming or in-progress projects and innovations.
+
+---
+
+## Getting Started (Development)
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/your-repo-name.git
+   ```
