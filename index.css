@@ -15,6 +15,40 @@
   font-weight: 400;
 } */
 
+.bloker {
+  display: none;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1324px) {
+  body {
+    overflow: hidden;
+  }
+  .bloker {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 10;
+
+    background-color: white;
+  }
+  .text_inside_the_block {
+    width: 90%;
+    position: absolute;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+  }
+
+
+
+
+}
+
 :root {
   --smoky_white: rgb(238, 238, 230);
   --light_smoky_white: #aba9a8;
@@ -603,7 +637,7 @@ body {
   background: white;
   width: 80%;
   height: 80%;
-  background-image: url("../images/ai.png");
+  background-image: url("../images/ai2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1084,8 +1118,6 @@ a {
   text-align: right;
 }
 
-
-
 .end_line_div {
   position: relative;
   width: 95%;
@@ -1352,59 +1384,56 @@ a {
   height: 100px;
   z-index: 0;
 }
-.scroll_up_flex a{
+.scroll_up_flex a {
   width: 0px;
 }
-.scroll_up_flex{
+.scroll_up_flex {
   margin-right: 35px;
 }
 
 div.scroll_up_bu {
-	width: 2vmin;
-	height: 2vmin;
+  width: 2vmin;
+  height: 2vmin;
   margin-top: -5px;
-	box-sizing: border-box;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: rotate(-45deg);
-	
-	&::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		border-width: .8vmin .8vmin 0 0;
-		border-style: solid;
-		border-color: #fafafa;
-		transition: .2s ease;
-		display: block;
-		transform-origin: 100% 0;
-	}
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: rotate(-45deg);
 
-	
-	&:after {
-		content: '';
-		float: left;
-		position: relative;
-		top: -100%;
-		width: 100%;
-		height: 100%;
-		border-width: 0 .8vmin 0 0;
-		border-style: solid;
-		border-color: #fafafa;
-		transform-origin: 100% 0;
-		transition:.2s ease;
-	}
-	
-	&:hover::after {
-		transform: rotate(45deg);
-		border-color: orange;
-		height: 120%;
-	}
-	&:hover::before {
-		border-color: orange;
-		transform: scale(.8);
-		
-	}
-	
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-width: 0.8vmin 0.8vmin 0 0;
+    border-style: solid;
+    border-color: #fafafa;
+    transition: 0.2s ease;
+    display: block;
+    transform-origin: 100% 0;
+  }
+
+  &:after {
+    content: "";
+    float: left;
+    position: relative;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    border-width: 0 0.8vmin 0 0;
+    border-style: solid;
+    border-color: #fafafa;
+    transform-origin: 100% 0;
+    transition: 0.2s ease;
+  }
+
+  &:hover::after {
+    transform: rotate(45deg);
+    border-color: orange;
+    height: 120%;
+  }
+  &:hover::before {
+    border-color: orange;
+    transform: scale(0.8);
+  }
 }
