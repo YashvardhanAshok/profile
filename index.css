@@ -19,7 +19,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 1324px) {
+/* @media only screen and (min-width: 0px) and (max-width: 1324px) {
   body {
     overflow: hidden;
   }
@@ -47,7 +47,7 @@
 
 
 
-}
+} */
 
 :root {
   --smoky_white: rgb(238, 238, 230);

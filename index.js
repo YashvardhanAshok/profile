@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
           event.clientY - (eyeRect.top + eyeRect.height / 2),
           event.clientX - (eyeRect.left + eyeRect.width / 2)
         );
-
+        let screenWidth = screen.width;
         eye.style.transform =
-          distance < 500
+          distance < screenWidth
             ? `translate(${Math.cos(angle) * 10}px, ${Math.sin(angle) * 10}px)`
             : "translate(0, 0)";
       });
