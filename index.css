@@ -19,7 +19,7 @@
   display: none;
 }
 
-/* @media only screen and (min-width: 0px) and (max-width: 1324px) {
+ @media only screen and (min-width: 0px) and (max-width: 1640px) {
   body {
     overflow: hidden;
   }
@@ -47,7 +47,7 @@
 
 
 
-} */
+} 
 
 :root {
   --smoky_white: rgb(238, 238, 230);
@@ -70,6 +70,14 @@ body {
   background-color: var(--root_sky);
 }
 
+.body_c {
+  max-width: 1912px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
 /* page_cun */
 .page_cun {
   position: relative;
@@ -77,7 +85,7 @@ body {
   padding: 0;
 
   width: 100vw;
-  max-width: 100vw;
+  max-width: 100%;
 
   height: 100vh;
   max-height: 100vh;
@@ -116,58 +124,12 @@ body {
   margin: 0;
   padding: 0;
 
-  width: 100vw;
-  max-width: 100vw;
-
+  width: 100%;
   height: 110vh;
   z-index: 1;
 
   background-color: var(--root_sky);
   background: #060010;
-  background: -moz-linear-gradient(
-    top,
-    #060010 0%,
-    #060010 6%,
-    #090016 11%,
-    #070016 20%,
-    #0a0121 48%,
-    #0a0127 55%,
-    #0a0129 57%,
-    #0c012b 62%,
-    #0e0131 68%,
-    #0d012f 69%,
-    #18023c 78%,
-    #19023e 79%,
-    #19023e 79%,
-    #1c0242 81%,
-    #22034b 85%,
-    #2e045a 92%,
-    #2f045e 96%,
-    #340464 98%,
-    #370569 100%
-  );
-  background: -webkit-linear-gradient(
-    top,
-    #060010 0%,
-    #060010 6%,
-    #090016 11%,
-    #070016 20%,
-    #0a0121 48%,
-    #0a0127 55%,
-    #0a0129 57%,
-    #0c012b 62%,
-    #0e0131 68%,
-    #0d012f 69%,
-    #18023c 78%,
-    #19023e 79%,
-    #19023e 79%,
-    #1c0242 81%,
-    #22034b 85%,
-    #2e045a 92%,
-    #2f045e 96%,
-    #340464 98%,
-    #370569 100%
-  );
   background: linear-gradient(
     to bottom,
     #060010 0%,
@@ -195,6 +157,8 @@ body {
       endColorstr="#370569",
       GradientType=0
     );
+
+  max-height: 988px;
 }
 
 .text1_cu {
@@ -282,7 +246,7 @@ body {
 }
 
 .decoration_boxs.purpal {
-  width: 33.2vw;
+  width: 33.2%;
   height: 300px;
 
   position: absolute;
@@ -295,7 +259,7 @@ body {
 }
 
 .decoration_boxs.white2 {
-  width: 31.36vw;
+  width: 31.36%;
   height: 250px;
 
   position: absolute;
@@ -393,7 +357,7 @@ body {
 .box2 {
   contain: layout paint;
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   z-index: 1;
 
@@ -414,7 +378,7 @@ body {
   left: 0px;
 
   border-bottom-right-radius: 30px;
-  background-color: var(--root_sky);
+  background-color: rgb(53, 6, 104);
 }
 
 .box2 .decoration_boxs_class .decoration_boxs.black {
@@ -448,34 +412,22 @@ body {
 /* flex_for_box2 */
 .box2_flex {
   position: relative;
-  width: 85%;
+  max-width: 1626px;
   margin: auto;
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 20px;
   padding-top: 100px;
-
   color: black;
 }
 
 .box2_flex_c1,
 .box2_flex_c2 {
-  position: relative;
   width: 50%;
-  padding-bottom: 10px;
-  /* background-color: aliceblue; */
 }
-
-.box2_flex_c1 h2,
-.box2_flex_c1 p,
-.box2_flex_c2 h2,
-.box2_flex_c2 p {
-  margin: 0;
-}
-
-.box2_flex_c1 h1 {
-  margin: 0;
-  font-size: 70px;
+.skill_box {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .skil_list {
@@ -514,7 +466,7 @@ body {
 .web_skeleton_contaner {
   position: relative;
   height: 800px;
-  width: 100%;
+  width: 800px;
 
   border-radius: 50px;
 
@@ -528,7 +480,7 @@ body {
 .web_skeleton {
   position: relative;
   height: 800px;
-  width: 100%;
+  width: 800px;
 
   border-radius: 50px;
   z-index: 1;
@@ -541,8 +493,8 @@ body {
 .web_skeleton_contaner::after {
   content: "";
   position: absolute;
-  height: 900px;
-  width: 100%;
+  height: 800px;
+  width: 800px;
   top: -43px;
 
   background-color: rgba(0, 0, 0, 0.058);
@@ -575,7 +527,7 @@ body {
 .data_analysis_contaner {
   position: relative;
   height: 800px;
-  width: 100%;
+  width: 800px;
 
   border-radius: 50px;
 
@@ -620,7 +572,7 @@ body {
 .ai_contaner {
   position: relative;
   height: 800px;
-  width: 100%;
+  width: 800px;
 
   border-radius: 50px;
 
@@ -723,6 +675,7 @@ body {
 }
 
 .section {
+  max-width: 100%;
   scroll-snap-align: start;
 }
 
@@ -767,8 +720,26 @@ body {
 }
 
 /* Scroll Indicator Dots */
-.scroll-indicator {
+.selctor_c {
+  top: 0;
   position: fixed;
+  pointer-events: none;
+  height: 100vh;
+  width: 100%;
+  max-width: 1912px;
+}
+
+.text1_box3_cu {
+  position: absolute;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  top: 13%;
+  left: 29.5%;
+  height: 100px;
+}
+
+.scroll-indicator {
+  position: absolute;
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
@@ -800,15 +771,6 @@ body {
   /* transform: scale(1.4); */
   height: 30px;
   border-radius: 10px;
-}
-
-.text1_box3_cu {
-  position: fixed;
-  width: 50%;
-  transform: translate(-50%, -50%);
-  top: 13%;
-  left: 29.5%;
-  height: 100px;
 }
 
 .text1_box3_cu h1 {
@@ -859,7 +821,7 @@ body {
 .box4 {
   contain: layout paint;
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   padding-bottom: 20px;
   padding-bottom: 400px;
@@ -874,11 +836,8 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background-image: linear-gradient(
-      0deg,
-      transparent 39px,
-      rgba(9, 64, 9, 0.517) 40px
-    ),
+  background-image:
+    linear-gradient(0deg, transparent 39px, rgba(9, 64, 9, 0.517) 40px),
     linear-gradient(90deg, transparent 39px, rgba(9, 64, 9, 0.527) 40px);
   background-size: 40px 40px;
   transform: rotate(10deg);
@@ -899,7 +858,8 @@ body {
   line-height: 1;
   padding-top: 55px;
   padding-bottom: 40px;
-  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.106),
+  text-shadow:
+    0px 0px 20px rgba(0, 0, 0, 0.106),
     0px 0px 50px rgba(0, 0, 0, 0.363);
 }
 
@@ -921,20 +881,26 @@ body {
 
 .box3_flex_c1,
 .box3_flex_c2 {
+  width: 565px;
+
   position: relative;
-  width: 35%;
   /* background-color: aliceblue; */
 }
 
 .c1_element p {
   margin: auto;
-  width: 90%;
+  width: 100%;
 }
+.flex_text {
+  width: 565px;
+  margin: auto;
+}
+
 .c1_element b {
-  padding-left: 30px;
+  /* padding-left: 30px; */
 }
 .c1_element_image {
-  width: 100%;
+  width: 600px;
   height: 400px;
   background-color: var(--smoky_black);
   border-radius: 30px;
@@ -1040,7 +1006,7 @@ body {
 /* end */
 .end {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 300px;
 
   background-color: var(--smoky_black);
