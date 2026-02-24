@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const faceCenterY = faceRect.top + faceRect.height / 2;
       const distance = Math.hypot(
         event.clientX - faceCenterX,
-        event.clientY - faceCenterY
+        event.clientY - faceCenterY,
       );
 
       // Get eyes inside this face only
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const eyeRect = eye.getBoundingClientRect();
         const angle = Math.atan2(
           event.clientY - (eyeRect.top + eyeRect.height / 2),
-          event.clientX - (eyeRect.left + eyeRect.width / 2)
+          event.clientX - (eyeRect.left + eyeRect.width / 2),
         );
         let screenWidth = screen.width;
         eye.style.transform =
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dataSize,
     maxValue,
     colors = [],
-    removeGrid = false
+    removeGrid = false,
   ) {
     return new Chart(ctx, {
       type,
@@ -113,20 +113,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("barChart"),
     "bar",
     7,
-    100
+    100,
   );
   const lineChart = createChart(
     document.getElementById("lineChart"),
     "line",
     7,
-    200
+    200,
   );
   const pieChart = createChart(
     document.getElementById("pieChart"),
     "pie",
     5,
     100,
-    ["#5d62fb", "#484cc4", "#353891", "#22245d", "#585ef5"]
+    ["#5d62fb", "#484cc4", "#353891", "#22245d", "#585ef5"],
   );
   const radarChart = createChart(
     document.getElementById("radarChart"),
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     7,
     100,
     ["rgba(0, 255, 0, 0.2)"],
-    true
+    true,
   );
 
   // Update Charts
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     [barChart, lineChart, pieChart, radarChart].forEach((chart, index) => {
       chart.data.datasets[0].data = getRandomData(
         chart.data.datasets[0].data.length,
-        index === 1 ? 200 : 100
+        index === 1 ? 200 : 100,
       );
       chart.update();
     });
@@ -169,18 +169,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.6 },
   );
 
   sections.forEach((section) => sectionObserver.observe(section));
 
   function updateActiveSection(index) {
     sections.forEach((section, i) =>
-      section.classList.toggle("active", i + 1 === index)
+      section.classList.toggle("active", i + 1 === index),
     );
     dots.forEach((dot, i) => dot.classList.toggle("active", i + 1 === index));
     box3WorkCu.forEach((box, i) =>
-      box.classList.toggle("active", i + 1 === index)
+      box.classList.toggle("active", i + 1 === index),
     );
   }
 
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.6 },
   );
 
   videos.forEach((video) => videoObserver.observe(video));
@@ -241,3 +241,46 @@ document
       }, 1500);
     });
   });
+
+// load
+const media = [...document.images, ...document.querySelectorAll("video")];
+
+let loaded = 0;
+const total = media.length;
+
+const text = document.getElementById("loading-text");
+const fill = document.getElementById("progress-fill");
+
+function updateProgress() {
+  loaded++;
+  const percent = Math.round((loaded / total) * 100);
+
+  fill.style.width = percent + "%";
+  text.textContent = `Loading... ${percent}%`;
+
+  if (loaded === total) {
+    setTimeout(() => {
+      document.getElementById("loader").style.opacity = "0";
+      document.getElementById("loader").style.pointerEvents = "none";
+      document.getElementById("loader").style.transition = "opacity 0.6s ease";
+
+      setTimeout(() => {
+        document.getElementById("loader").remove();
+      }, 700);
+    }, 400);
+  }
+}
+
+if (total === 0) {
+  updateProgress();
+}
+
+media.forEach((el) => {
+  if (el.complete || el.readyState >= 3) {
+    updateProgress();
+  } else {
+    el.addEventListener("loadeddata", updateProgress);
+    el.addEventListener("load", updateProgress);
+    el.addEventListener("error", updateProgress);
+  }
+});
