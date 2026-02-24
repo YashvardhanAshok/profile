@@ -243,44 +243,44 @@ document
   });
 
 // load
-const media = [...document.images, ...document.querySelectorAll("video")];
+// const media = [...document.images, ...document.querySelectorAll("video")];
 
-let loaded = 0;
-const total = media.length;
+// let loaded = 0;
+// const total = media.length;
 
-const text = document.getElementById("loading-text");
-const fill = document.getElementById("progress-fill");
+// const text = document.getElementById("loading-text");
+// const fill = document.getElementById("progress-fill");
 
-function updateProgress() {
-  loaded++;
-  const percent = Math.round((loaded / total) * 100);
+// function updateProgress() {
+//   loaded++;
+//   const percent = Math.round((loaded / total) * 100);
 
-  fill.style.width = percent + "%";
-  text.textContent = `Loading... ${percent}%`;
+//   fill.style.width = percent + "%";
+//   text.textContent = `Loading... ${percent}%`;
 
-  if (loaded === total) {
-    setTimeout(() => {
-      document.getElementById("loader").style.opacity = "0";
-      document.getElementById("loader").style.pointerEvents = "none";
-      document.getElementById("loader").style.transition = "opacity 0.6s ease";
+//   if (loaded === total) {
+//     setTimeout(() => {
+//       document.getElementById("loader").style.opacity = "0";
+//       document.getElementById("loader").style.pointerEvents = "none";
+//       document.getElementById("loader").style.transition = "opacity 0.6s ease";
 
-      setTimeout(() => {
-        document.getElementById("loader").remove();
-      }, 700);
-    }, 400);
-  }
-}
+//       setTimeout(() => {
+//         document.getElementById("loader").remove();
+//       }, 700);
+//     }, 400);
+//   }
+// }
 
-if (total === 0) {
-  updateProgress();
-}
+// if (total === 0) {
+//   updateProgress();
+// }
 
-media.forEach((el) => {
-  if (el.complete || el.readyState >= 3) {
-    updateProgress();
-  } else {
-    el.addEventListener("loadeddata", updateProgress);
-    el.addEventListener("load", updateProgress);
-    el.addEventListener("error", updateProgress);
-  }
-});
+// media.forEach((el) => {
+//   if (el.complete || el.readyState >= 3) {
+//     updateProgress();
+//   } else {
+//     el.addEventListener("loadeddata", updateProgress);
+//     el.addEventListener("load", updateProgress);
+//     el.addEventListener("error", updateProgress);
+//   }
+// });
